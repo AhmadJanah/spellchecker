@@ -5,9 +5,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+
+.hititle{
+  color: #e63946;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.labetclass{
+  font-size: medium;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #a8dadc;
+}
+
+.myButton{
+  width: 15rem;
+  Height: 3rem;
+  background-color: #1d3557;
+  color: #f1faee;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.textArea{
+  width: 38rem;
+  height: 3rem;
 }

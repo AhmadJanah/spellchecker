@@ -1,18 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-import React, { useState, useEffect } from 'react';
-import TextInputMultiline from './MyTextInput';
-
-
-function App() {
-
-  const [textVal, setTextVal] = useState(""); 
-  const [checkedText, setCheckedText] = useState("");
-  // const [mydata,setMydata] = useState([]);
-  const mydata = [{
-    name : "OPERATIONS",
-    count: 100,
-    words: ["come", "get", "give", "go", "keep", "let", "make", "put", "seem", "take", "be", "do", "have", "say", "see", "send", "may", "will",
+[{
+    "name" : "OPERATIONS",
+    "count": 100,
+    "words": ["come", "get", "give", "go", "keep", "let", "make", "put", "seem", "take", "be", "do", "have", "say", "see", "send", "may", "will",
         "about", "across", "after", "against", "among", "at", "before", "between", "by", "down", "from", "in", "off", "on", "over", "through", "to", "under", "up", "with",
         "as", "for", "of", "till", "than",
         "a", "the", "all", "any", "every", "little", "much", "no", "other", "some", "such", "that", "this", "i", "he", "you", "who",
@@ -22,9 +11,9 @@ function App() {
         "north", "south", "east", "west", "please", "yes"]
 },
 {
-    name : "General",
-    count: 400,
-    words: ["account", "act", "addition", "adjustment", "advertisement", "agreement", "air", "amount", "amusement", "animal", "answer", "apparatus", 
+    "name" : "General",
+    "count": 400,
+    "words": ["account", "act", "addition", "adjustment", "advertisement", "agreement", "air", "amount", "amusement", "animal", "answer", "apparatus", 
             "approval", "argument", "art", "attack", "attempt", "attention", "attraction", "authority", "back", "balance", "base", "behavior", "belief", 
             "birth", "bit", "bite", "blood", "blow", "body", "brass", "bread", "breath", "brother", "building", "burn", "burst", "business", "butter", 
             "canvas", "care", "cause", "chalk", "chance", "change", "cloth", "coal", "color", "comfort", "committee", "company", "comparison", "competition", 
@@ -53,9 +42,9 @@ function App() {
             "week", "weight", "wind", "wine", "winter", "woman", "wood", "wool", "word", "work", "wound", "writing", "year"]
 },
 {
-    name : "Picturable",
-    count: 200,
-    words: ["angle", "ant", "apple", "arch", "arm", "army", "baby", "bag", "ball", "band", "basin", "basket", "bath", "bed", "bee", "bell", "berry", "bird", 
+    "name" : "Picturable",
+    "count": 200,
+    "words": ["angle", "ant", "apple", "arch", "arm", "army", "baby", "bag", "ball", "band", "basin", "basket", "bath", "bed", "bee", "bell", "berry", "bird", 
             "blade", "board", "boat", "bone", "book", "boot", "bottle", "box", "boy", "brain", "brake", "branch", "brick", "bridge", "brush", "bucket", "bulb", 
             "button", "cake", "camera", "card", "cart", "carriage", "cat", "chain", "cheese", "chest", "chin", "church", "circle", "clock", "cloud", "coat", 
             "collar", "comb", "cord", "cow", "cup", "curtain", "cushion", "dog", "door", "drain", "drawer", "dress", "drop", "ear", "egg", "engine", "eye", 
@@ -69,9 +58,9 @@ function App() {
             "town", "train", "tray", "tree", "trousers", "umbrella", "wall", "watch", "wheel", "whip", "whistle", "window", "wing", "wire", "worm"]
 },
 {
-    name : "QUALITIES",
-    count: 100,
-    words: ["able", "acid", "angry", "automatic", "beautiful", "black", "boiling", "bright", "broken", "brown", "cheap", "chemical", "chief", "clean", 
+    "name" : "QUALITIES",
+    "count": 100,
+    "words": ["able", "acid", "angry", "automatic", "beautiful", "black", "boiling", "bright", "broken", "brown", "cheap", "chemical", "chief", "clean", 
             "clear", "common", "complex", "conscious", "cut", "deep", "dependent", "early", "elastic", "electric", "equal", "fat", "fertile", "first", 
             "fixed", "flat", "free", "frequent", "full", "general", "good", "great", "grey/gray", "hanging", "happy", "hard", "healthy", "high", "hollow", 
             "important", "kind", "like", "living", "long", "male", "married", "material", "medical", "military", "natural", "necessary", "new", "normal", 
@@ -80,98 +69,10 @@ function App() {
             "sudden", "sweet", "tall", "thick", "tight", "tired", "true", "violent", "waiting", "warm", "wet", "wide", "wise", "yellow", "young"]
 },
 {
-    name : "Opposites",
-    count: 50,
-    words: ["awake", "bad", "bent", "bitter", "blue", "certain", "cold", "complete", "cruel", "dark", "dead", "dear", "delicate", "different", "dirty", "dry", 
+    "name" : "Opposites",
+    "count": 50,
+    "words": ["awake", "bad", "bent", "bitter", "blue", "certain", "cold", "complete", "cruel", "dark", "dead", "dear", "delicate", "different", "dirty", "dry", 
         "false", "feeble", "female", "foolish", "future", "green", "ill", "last", "late", "left", "loose", "loud", "low", "mixed", "narrow", "old", "opposite", 
         "public", "rough", "sad", "safe", "secret", "short", "shut", "simple", "slow", "small", "soft", "solid", "special", "strange", "thin", "white", "wrong"]
 }
-];
-
-
-  // const getData=()=>{
-  //   fetch('./data.json')
-  //     .then(function(response){
-  //       return response.json();
-  //     })
-  //     .then(function(myJson) {
-  //       setMydata(myJson)
-  //     }).catch( err => {
-  //       err.text().then( errorMessage => {
-  //        console.log("Error",errorMessage)
-  //       })
-  //     })
-  //     ;
-  // }
-  // useEffect(()=>{
-  //   getData()
-  // },[])
-
-  function handleChange(text) {
-    // setTextVal(event.target.value);
-    setTextVal(text);
-  }
-
-  function checkWord(word){
-    const first = word.length;
-    if (word.slice(-2) === 'ly')
-      return isOdgen(word.slice(0,first-2));
-    else if (word.slice(-2) === 'ed')
-      return isOdgen(word.slice(0,first-2));
-    else if (word.slice(-2) === 'ing')
-      return isOdgen(word.slice(0,first-3));
-    else if (word.slice(-2) === 'ness')
-      return isOdgen(word.slice(0,first-4));
-    else if (word.slice(-2) === 'less')
-      return isOdgen(word.slice(0,first-4));
-    else if (word.slice(-2) === 'er')
-      return isOdgen(word.slice(0,first-2));
-    else return isOdgen(word);
-  }
-
-  function isOdgen(word){
-    console.log(word);
-    return (!(mydata[0].words.includes(word.toLowerCase()) || mydata[1].words.includes(word.toLowerCase()) || 
-            mydata[2].words.includes(word.toLowerCase()) || mydata[3].words.includes(word.toLowerCase()) || 
-            mydata[4].words.includes(word.toLowerCase())));
-  }
-
-  function CheckSpelling(){
-    const splitArray = textVal.split(" ");
-    let wrongText = "";
-    splitArray.forEach(part => {
-
-    part = part.replace('.','').replace('?','').replace('!','').replace('<','').replace('>','').replace('@','').replace('#','').replace('$','').replace('%','').replace(',','');
-      // checkWord(part);
-
-      if (checkWord(part))
-      {
-        // I am Ahmad Janah, And I going to do a lot of things and go school.   2
-        if (!wrongText.includes(part))  
-          wrongText += ", " + part;
-      }  
-    });
-    
-    setCheckedText(wrongText.substring(2));
-  }
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className='hititle'>Ahmad spell checker</h1>
-      <br/>
-        <button className='myButton' onClick={CheckSpelling}>Check the spelling</button>
-        <br/>
-        <label className='labetclass'>Not Ogden's Basic English will appear here</label>
-        <input type= "text" className='textArea' value= {checkedText} disabled
-        />
-        <br/>
-        <label className='labetclass'>Write your text bellow then press the button to detect if there is NON Ogden's Basic English</label>
-        <TextInputMultiline onhandle = {handleChange}
-        />
-    </header>
-    </div>
-  );
-}
-
-export default App;
+]
